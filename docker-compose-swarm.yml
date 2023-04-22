@@ -1,0 +1,31 @@
+version: '3.8'
+
+services:
+
+  web:
+    image: sourishx/flaskapp:01
+    deploy:
+      replicas: 2
+      restart_policy:
+        condition: on-failure
+      placement:
+        constraints: [node.role == worker]
+    expose:
+      - 4000
+    healthcheck:
+      test: curl --fail http://localhost:4000/ping || exit 1
+      interval: 10s
+      timeout: 2s
+      retries: 5
+  nginx:
+    image: sourishx/nginx:01
+    deploy:
+      replicas: 1
+      restart_policy:
+        condition: on-failure
+      placement:
+        constraints: [ node.role == worker ]
+    ports:
+      - 80:80
+    depends_on:
+      - web
