@@ -2,6 +2,8 @@ version: '3.7'
 services:
   flask_app:
     image: sourishx/flaskapp:01
+    deploy:
+      replicas: 2
     build: flask_app
   nginx:
     image: sourishx/nginx:01
