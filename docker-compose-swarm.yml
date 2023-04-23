@@ -5,7 +5,7 @@ services:
   flask_app:
     image: sourishx/flaskapp:01
     deploy:
-      replicas: 2
+      replicas: 4
       restart_policy:
         condition: on-failure
       placement:
