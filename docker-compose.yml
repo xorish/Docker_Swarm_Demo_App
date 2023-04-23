@@ -3,8 +3,7 @@ services:
   flask_app:
     image: sourishx/flaskapp:01
     build: flask_app
-    ports:
-      - "4000:4000"
+
   nginx:
     image: sourishx/nginx:01
     container_name: nginx
