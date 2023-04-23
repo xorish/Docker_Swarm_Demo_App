@@ -16,7 +16,7 @@ services:
   nginx:
     image: sourishx/nginx:01
     deploy:
-      replicas: 1
+      replicas: 2
       restart_policy:
         condition: on-failure
       placement:
