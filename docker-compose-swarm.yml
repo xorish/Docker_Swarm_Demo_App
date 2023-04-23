@@ -10,8 +10,8 @@ services:
         condition: on-failure
       placement:
         constraints: [node.role == worker]
-    ports:
-      - 4000:4000
+    expose:
+      - 4000
   nginx:
     image: sourishx/nginx:01
     deploy:
