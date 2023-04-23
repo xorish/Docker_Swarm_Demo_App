@@ -2,8 +2,6 @@ version: '3.7'
 services:
   flask_app:
     image: sourishx/flaskapp:01
-    deploy:
-      replicas: 2
     build: flask_app
     ports:
       - "4000:4000"
