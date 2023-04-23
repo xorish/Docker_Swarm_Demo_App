@@ -20,7 +20,7 @@ services:
       restart_policy:
         condition: on-failure
       placement:
-        constraints: [ node.role == manager ]
+        constraints: [ node.role == worker ]
     ports:
       - 80:80
     depends_on:
